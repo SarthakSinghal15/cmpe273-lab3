@@ -10,8 +10,9 @@ class MulticastPingPong(DatagramProtocol):
 
     def datagramReceived(self, datagrams, address):
         print(datagrams.decode())
-        if datagrams.decode() == "Hello World":
-            self.transport.write("Message received by the server".encode(),address)
+        #uncomment below line if server has to send response in the channel
+        '''if datagrams.decode() == "Hello World":
+            self.transport.write("Message received by the server".encode(), ("228.0.0.5", 8005))'''
 
 reactor.listenMulticast(8005, MulticastPingPong(),listenMultiple=True)
 reactor.run()

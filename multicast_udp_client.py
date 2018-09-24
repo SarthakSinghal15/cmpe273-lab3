@@ -9,7 +9,7 @@ class MulticastPingClient(DatagramProtocol):
         self.transport.write("Hello World".encode(), ("228.0.0.5", 8005))
 
     def datagramReceived(self, datagram, address):
-        print ("Datagram %s received from %s" % (repr(datagram), repr(address)))
+        print ("Datagram %s received from %s" % (datagram.decode(), repr(address)))
 
 
 reactor.listenMulticast(8005, MulticastPingClient(), listenMultiple=True)

@@ -1,0 +1,5 @@
+-----------------Answer---------------------
+
+What happened when you send message from client in Multicast UDP when server is not available?
+
+Nothing happened.So in this example, even if no server is running/available, we won’t get any error/exception.The datagram will simply be sent to the multicast group “228.0.0.5” by the client. The client is not concerned whether the message it has sent to the group has been listened to or not.
